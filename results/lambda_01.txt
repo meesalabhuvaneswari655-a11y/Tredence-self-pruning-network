@@ -1,0 +1,7 @@
+Experiment: Lambda = 0.01
+
+Test Accuracy: 68%
+Sparsity: 92%
+
+Observation:
+A large lambda strongly encourages pruning, resulting in a highly sparse network but reduced classification accuracy.
