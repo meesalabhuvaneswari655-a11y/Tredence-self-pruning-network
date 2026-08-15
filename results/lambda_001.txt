@@ -1,0 +1,7 @@
+Experiment: Lambda = 0.001
+
+Test Accuracy: 76%
+Sparsity: 55%
+
+Observation:
+This value provides a balance between accuracy and sparsity, with many unnecessary connections becoming inactive.
