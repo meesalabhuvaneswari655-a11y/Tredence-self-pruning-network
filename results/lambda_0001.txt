@@ -1,3 +1,7 @@
-Lambda: 0.0001
+Experiment: Lambda = 0.0001
+
 Test Accuracy: 78%
 Sparsity: 15%
+
+Observation:
+A very small lambda applies a weak sparsity penalty, so most connections remain active and the model retains high accuracy.
