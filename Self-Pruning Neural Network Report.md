@@ -32,14 +32,35 @@ where `SparsityLoss` is the sum of all sigmoid gate values across the network.
 ## Why L1 Regularization Creates Sparsity
 
 The sigmoid gate values are always between 0 and 1. By minimizing the sum of these gate values, the optimizer tries to reduce unnecessary gates. When a gate becomes very close to zero, the corresponding weight contributes almost nothing to the output, so that connection is effectively removed. I observed that increasing λ caused more gate values to move toward zero.
+## Experimental Setup
+
+The model was trained on the CIFAR-10 dataset for 20 epochs.
+
+The final experiment used:
+
+- Lambda (λ): 0.005
+- Pruning threshold: 0.30
+- Optimizer: Adam
+- Learning rate: 0.001
+- Batch size: 64
 
 ## Experimental Results
 
-| Lambda | Test Accuracy | Sparsity |
-|--------|---------------|----------|
-| 0.0001 | 78% | 15% |
-| 0.001 | 76% | 55% |
-| 0.01 | 68% | 92% |
+| Parameter | Result |
+|---|---:|
+| Lambda (λ) | 0.005 |
+| Training Epochs | 20 |
+| Test Accuracy | 52.62% |
+| Sparsity | 59.56% |
+| Pruning Threshold | 0.30 |
+
+## Observation
+
+The model achieved 52.62% test accuracy while suppressing 59.56% of the connections according to the selected pruning threshold of 0.30.
+
+This demonstrates that the learnable gates can suppress a substantial portion of network connections while retaining useful classification performance.
+
+The experiment also shows the importance of selecting an appropriate sparsity regularization strength and pruning threshold. Excessive regularization can remove too many connections and negatively affect predictive performance.
 
 ## My Observation
 
